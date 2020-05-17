@@ -1,14 +1,10 @@
-FROM ruby:2.3.0
+FROM python:3.7
+ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update -qq && \
-    apt-get install -y build-essential libpq-dev nodejs
+# App setup
+ADD . /code
+WORKDIR /code
 
-RUN mkdir /app
-WORKDIR /app
+# Requirements installation
+RUN pip install -r requirements.txt
 
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
-
-RUN bundle install
-
-ADD . /app
