@@ -1,0 +1,12 @@
+# Теоритические задачи
+
+1. Изучить два туториала **[здесь](https://github.com/vngrv/docker-tutorial/blob/master/docker.md)** и **[тут](https://github.com/vngrv/docker-tutorial/blob/master/docker-compose.md)**
+2. Разобрать примеры 
+
+# Практические Задачи
+
+1. Изучить каким образом в docker-compose можно инициализировать базу данных:
+2. Создать docker обертку для текущего проекта в рамках программы обучения
+3. Предотставить рабочую сборку в github
+
+Вопросы **[сюда](https://vk.com/veng8)**.
