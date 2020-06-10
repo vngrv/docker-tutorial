@@ -5,8 +5,10 @@
 
 # Практические Задачи
 
+0. Установить докер как **[тут](https://docs.docker.com/engine/install/ubuntu/)** или **[тут](https://docs.docker.com/engine/install/)**
 1. Изучить каким образом в docker-compose можно инициализировать базу данных:
 2. Создать docker обертку для текущего проекта в рамках программы обучения
 3. Предотставить рабочую сборку в github
 
 Вопросы **[сюда](https://vk.com/veng8)**.
+Официальная **[дока](https://docs.docker.com/engine/install/)**
