@@ -1,12 +1,6 @@
-FROM golang
+FROM python:latest
 
-ARG app_env
-ENV APP_ENV $app_env
+ADD server.py /server/
+ADD index.html /server/
 
-
-COPY . /go/server
-WORKDIR /go/server
-
-RUN go build
-
-EXPOSE 8080
+WORKDIR /server/
