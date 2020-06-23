@@ -1,5 +1,11 @@
 version: '3.3'
 services:
+  db:
+    container_name: postgres
+    hostname: postgres
+    image: postgres
+    ports:
+      - "27017:27017"
   web:
     build: .
     command: bash -c "sleep 3 && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
@@ -7,4 +13,14 @@ services:
       - .:/code
     ports: 
       - "8000:8000"
+    links:
+      - db
+  client:
+    build: front/
+    command: bash -c "npm run dev"
+    network_mode: host
+    ports:
+      - "8089:8089"
+    depends_on:
+      - web
 
