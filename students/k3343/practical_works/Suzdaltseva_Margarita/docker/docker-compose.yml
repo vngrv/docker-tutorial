@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-    db:
+    marketing_db:
         image: postgres
         ports:
             - "5436:5432"
@@ -23,7 +23,7 @@ services:
         ports:
             - "8000:8000"
         depends_on:
-            - db
+            - marketing_db
     frontend:
         container_name: vue-marketing
         build:

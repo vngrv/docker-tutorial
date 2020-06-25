@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'marketingdb',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'db',
+        'HOST': 'marketing_db',
         'PORT': '5432'
     }
 }
