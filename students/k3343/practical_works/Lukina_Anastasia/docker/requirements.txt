@@ -26,3 +26,4 @@ django-widget-tweaks==1.4.8
 django-phonenumber-field
 django-smart-selects==1.5.6
 phonenumbers==8.12.6
+psycopg2-binary==2.8.5

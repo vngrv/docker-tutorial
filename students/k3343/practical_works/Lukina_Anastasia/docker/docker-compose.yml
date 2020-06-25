@@ -1,11 +1,9 @@
-version: '3.3'
+version: '3'
 services:
   db:
-    container_name: postgres
-    hostname: postgres
     image: postgres
-    ports:
-      - "27017:27017"
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
   web:
     build: .
     command: bash -c "sleep 3 && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
@@ -16,11 +14,16 @@ services:
     links:
       - db
   client:
-    build: front/
-    command: bash -c "npm run dev"
-    network_mode: host
+    container_name: front
+    build:
+      context: ./vue-blog
+      dockerfile: Dockerfile
+    command: npm start --start;
+    volumes:
+      - ./vue-blog:/vue-blog
+      - /vue-blog/node_modules
     ports:
-      - "8089:8089"
+      - "8085:8080"
     depends_on:
       - web
 
