@@ -4,9 +4,11 @@ services:
     image: postgres
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD="postgres"
   web:
     build: .
-    command: bash -c "sleep 3 && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes: 
       - .:/code
     ports: 
@@ -14,7 +16,6 @@ services:
     links:
       - db
   client:
-    container_name: front
     build:
       context: ./vue-blog
       dockerfile: Dockerfile
