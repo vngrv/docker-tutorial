@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+  {% block content %}
+<form method="POST" action="{% url 'add_flight_url'%}" enctype="multipart/form-data">
+    <!-- Security token -->
+    {% csrf_token %}
+    <div class="container">
+        <div class="form-sec">
+        <h2> Form for new flight</h2>
+            <div class="form-group">
+
+                 Flight date:
+                 <p>{{ form.flight_date }}</p>
+                 Departure:
+                 <p>{{ form.departure }}</p>
+                 Arrival:
+                 <p>{{ form.arrival }}</p>
+                 Flight duration:
+                 <p>{{ form.flight_duration}}</p>
+                 Cargo weight:
+                 <p>{{ form.cargo_weight }}</p>
+                 Number of people:
+                 <p>{{ form.number_of_people }}</p>
+             </div>
+            <div class="form-group">
+                <label class="control-label required" for="select_h">Choose helicopter</label>
+                 <div class="select">
+                        <select id="select_h" name="id_helicopter" class="form-control">
+                            <option value="" disabled selected>Type helicopter</option>
+                            {% for helicopter in data_h %}
+                            <option value= "{{helicopter.id}}" > {{helicopter.type_helicopter}} </option>
+<!--                            <option value= "{form.id_helicopter}" > 12 </option>-->
+                             {% endfor %}
+                        </select>
+                   </div>
+             </div>
+            <label class="control-label required" for="select_h">Choose crew members</label>
+            <div class="form-group">
+                 <div class="select">
+                        <select id="select_cr_1" name="id_crew_member_1" class="form-control crew-member-team">
+                            <option value="" disabled selected>Name crew member</option>
+                            {% for crew_member in data_cr %}.
+                            <option value="{{ crew_member.id }}" >{{crew_member.names }}</option>
+                             {% endfor %}
+                        </select>
+                   </div>
+             </div>
+            <div class="form-group">
+                 <div class="select">
+                        <select id="select_cr_2" name="id_crew_member_2" class="form-control crew-member-team">
+                            <option value="" disabled selected>Name crew member</option>
+                            {% for crew_member in data_cr %}.
+                            <option value="{{ crew_member.id }}" >{{crew_member.names }}</option>
+                             {% endfor %}
+                        </select>
+                   </div>
+             </div>
+        </div>
+            <div class="form-group">
+                 <div class="select">
+                        <select id="select_cr_3" name="id_crew_member_3" class="form-control crew-member-team">
+                            <option value="" disabled selected>Name crew member</option>
+                            {% for crew_member in data_cr %}.
+                            <option value="{{ crew_member.id }}" >{{crew_member.names }}</option>
+                             {% endfor %}
+                        </select>
+                   </div>
+             </div>
+
+
+        <input type="submit" value="Submit" class="btn btn-outline-secondary" href="/flight">
+    </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $( document ).ready(function () {
+        $(".crew-member-team").change(function () {
+            let selectedOption = $(this).find("option:selected");
+            $(this).find("option").removeAttr("selected")
+            let selectedName = selectedOption.val();
+            selectedOption.attr("selected",true);
+            let repeatedElements = $(".crew-member-team").find('[selected="selected"][value="'+selectedName+'"]').length;
+            if(repeatedElements > 1){
+                $(this).find("option").removeAttr("selected")
+                $(this).find("option:first").attr("selected",true);
+                alert('You choose the crew member twice');
+            }
+        })
+    });
+</script>
+{% endblock %}

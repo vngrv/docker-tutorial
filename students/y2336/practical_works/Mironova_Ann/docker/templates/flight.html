@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+  {% block content %}
+<h1 class="text-center">Information about flights</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+    	 <table class="table table-list-search">
+                    <thead>
+                        <tr>
+        <th>Flight date</th>
+        <th>Departure</th>
+        <th>Arrival</th>
+        <th>Flight duration</th>
+         <th>Cargo weight</th>
+         <th>Number of people</th>
+          <th>ID helicopter</th>
+          <th>ID crew members</th>
+      </tr>
+    </thead>
+           <tbody>
+        <td>{{flight.flight_date}}</td>
+        <td>{{flight.departure}}</td>
+        <td>{{flight.arrival}}</td>
+        <td>{{flight.flight_duration}}</td>
+        <td>{{flight.cargo_weight}}</td>
+        <td>{{flight.number_of_people}}</td>
+        <td>{{flight.id_helicopter}}</td>
+        <td>{{flight.id_crew_member_1}}  {{flight.id_crew_member_2}} {{flight.id_crew_member_3}}</td>
+
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+  {% endblock %}
+</body>
+</html>
+
+
+

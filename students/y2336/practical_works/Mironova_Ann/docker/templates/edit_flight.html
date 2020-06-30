@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+        <div class="form-sec">
+        <h2> Form for change flight</h2>
+            <div class="form-group">
+            <form method="POST" action="/edit_flight" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="form.id" hidden value="{{c.id}}"/>
+                <p>
+                    <label>Flight date:</label><br>
+                    <input type="text" name="form.flight_date" value="{{c.flight_date|date:'Y-m-d'}}"/>
+                </p>
+                <p>
+                    <label>Departure:</label><br>
+                    <input  type="text" name="form.departure" value="{{c.departure}}"/>
+                </p>
+                <p>
+                    <label>Arrival:</label><br>
+                    <input type="text" name="form.arrival" value="{{c.arrival}}"/>
+                </p>
+                <p>
+                    <label>Flight duration:</label><br>
+                    <input type="text" name="form.flight_duration" value="{{c.flight_duration|time:'G:i:s'}}"/>
+                </p>
+                <p>
+                    <label>Cargo weight:</label><br>
+                    <input type="text" name="form.cargo_weight" value="{{c.cargo_weight}}"/>
+                </p>
+                <p>
+                    <label>Number of people:</label><br>
+                    <input type="text" name="form.number_of_people" value="{{c.number_of_people}}"/>
+                </p>
+                <p>
+                    <label>Id helicopter:</label><br>
+                    <input type="text" name="form.id_helicopter" value="{{c.id_helicopter}}"/>
+                </p>
+                <p>
+                    <label>Id crew member:</label><br>
+                    <input type="text" name="form.id_crew_member_1" value="{{c.id_crew_member_1}}"/>
+                    <input type="text" name="form.id_crew_member_2" value="{{c.id_crew_member_2}}"/>
+                    <input type="text" name="form.id_crew_member_3" value="{{c.id_crew_member_3}}"/>
+                </p>
+            </div>
+            <button type="submit" class="btn btn-outline-secondary" class="btn btn-default">Save changes</button>
+        </form>
+    </div>
+        </div>
+</div>
+{% endblock %}
