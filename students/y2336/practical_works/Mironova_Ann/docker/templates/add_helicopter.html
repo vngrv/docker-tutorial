@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+  {% block content %}
+<form method="POST" action="{% url 'add_helicopter_url'%}" enctype="multipart/form-data">
+
+    <!-- Security token -->
+    {% csrf_token %}
+
+    <div class="container">
+        <div class="form-sec">
+        <h2> Form for new helicopter</h2>
+            <div class="form-group">
+                 Type helicopter:
+                 <p>{{ form.type_helicopter }}</p>
+                 Year of production:
+                 <p>{{ form.production_date }}</p>
+                 Carrying:
+                 <p>{{ form.carrying }}</p>
+                 Date of last repair:
+                 <p>{{ form.date_of_last_repair }}</p>
+                 Time resource until the next major overhaul:
+                 <p>{{ form.time_resource_until_the_next_major_overhaul }}</p>
+             </div>
+    <input type="submit" value="Submit" class="btn btn-outline-secondary" onclick="location.href='/helicopter';">
+        </div>
+    </div>
+</form>
+{% endblock %}

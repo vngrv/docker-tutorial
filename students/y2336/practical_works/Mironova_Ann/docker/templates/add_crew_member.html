@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+  {% block content %}
+
+<form method="POST" action="{% url 'add_crew_member_url'%}" enctype="multipart/form-data">
+
+    <!-- Security token -->
+    {% csrf_token %}
+
+    <div class="container">
+        <div class="form-sec">
+        <h2> Form for new crew member</h2>
+            <div class="form-group">
+<!--                {{ form.as_p }}-->
+                Names:
+                {{ form.names }}
+                 Year of birth:
+                 {{ form.year_of_birth }}
+                 Address:
+                 {{ form.address }}
+                 Functions:
+                 {{ form.functions }}
+                 Experience:
+                 {{ form.experience }}
+                </div>
+            </div>
+    <input type="submit" value="Submit" class="btn btn-outline-secondary" href="/crew_member">
+        </div>
+</form>
+
+
+
+<!-- <div class="container">-->
+<!--        <div class="form-sec">-->
+<!--     <h2> Form for new crew member</h2>-->
+<!--         <form method="POST" action="{% url 'add_crew_member_url'%}" enctype="multipart/form-data">-->
+<!--             {% csrf_token %}-->
+<!--             <div class="form-group">-->
+<!--&lt;!&ndash;                 <p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label>Names:</label><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input type="text" name="form.names"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label>Year of birth:</label><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input  type="text" name="form.year_of_birth" />&ndash;&gt;-->
+<!--&lt;!&ndash;                </p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label>Address:</label><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input type="text" name="form.address" />&ndash;&gt;-->
+<!--&lt;!&ndash;                </p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label>Functions:</label><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input type="text" name="form.functions" />&ndash;&gt;-->
+<!--&lt;!&ndash;                </p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label>Experience:</label><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input type="text" name="form.experience" />&ndash;&gt;-->
+<!--&lt;!&ndash;                </p>&ndash;&gt;-->
+<!--                 Names:-->
+<!--                {{ form.names }}-->
+<!--                 Year of birth:-->
+<!--                 {{ form.year_of_birth }}-->
+<!--                 Address:-->
+<!--                 {{ form.address }}-->
+<!--                 Functions:-->
+<!--                 {{ form.functions }}-->
+<!--                 Experience:-->
+<!--                 {{ form.experience }}-->
+<!--             </div>-->
+<!--            <a  type="submit" class="btn btn-outline-secondary" class="btn btn-default" href="http://127.0.0.1:8000/crew_member">Submit</a >-->
+<!--          </form>-->
+<!--        </div>-->
+<!-- </div>-->
+{% endblock %}
